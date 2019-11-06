@@ -65,7 +65,14 @@ fn main() -> Result<(),failure::Error> {
 
   for line in io::stdin().lock().lines() {
      let line = line?;
-     let res: serde_json::Result<Value> = serde_json::from_str(&line); 
+
+     // find the begining of the JSON slice and parse it until the of the line
+     let res: Result<Value, _> = if let Some(offset) = line.find("{\"") {
+       serde_json::from_str(&line[offset..]).map_err(|e| e.into())
+     } else {
+       Err(format_err!("JSON not found in line"))
+     };
+
      let out = if let Ok(json) = res {
        parse_log(json, &opt).unwrap_or_else(|_|{line})
      } else {
