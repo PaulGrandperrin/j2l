@@ -1,0 +1,15 @@
+[package]
+name = "j2l"
+version = "0.1.0"
+authors = ["Paul Grandperrin <paul.grandperrin@gmail.com>"]
+edition = "2018"
+license = "MIT/Apache-2.0/Unlicense/WTFPL"
+description = """
+Converts a stream of JSONs to human-readable logs
+"""
+
+[dependencies]
+failure = "0.1"
+serde_json = "1.0"
+colored = "1.8"
+structopt = "0.3"
