@@ -7,7 +7,7 @@ if [ "`uname`" = "Linux" ] ;then
     . $HOME/.cargo/env
   fi
 
-  apt install -y --no-install-recommends build-essential musl-tools
+  sudo apt install -y --no-install-recommends build-essential musl-tools
 
   cargo build --release --target x86_64-unknown-linux-musl
   echo "the resulting binary is at ./target/x86_64-unknown-linux-musl/release/j2l"
