@@ -19,3 +19,7 @@ Run the installer:
 Add symbolic link to program:
 
 `sudo ln -s target/*/release/j2l /usr/local/bin/`
+
+# Docker
+
+https://hub.docker.com/repository/docker/paulgrandperrin/j2l
